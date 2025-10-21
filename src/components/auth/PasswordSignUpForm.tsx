@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-export function PasswordSignUpForm() {
+export function PasswordSignUpForm({ HandleChangeStep, setEmail }: any) {
   const formSchema = z.object({
     password: z.string().min(6).max(10),
     confirmPassword: z.string().min(6).max(10),
@@ -29,6 +29,8 @@ export function PasswordSignUpForm() {
   });
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    HandleChangeStep();
+    setEmail();
   }
   return (
     <>
@@ -72,11 +74,11 @@ export function PasswordSignUpForm() {
                 )}
               />
               <Button className="w-full bg-primary" type="submit">
-                Let's Go
+                <a href="./">Let's Go</a>
               </Button>
               <div className="flex  gap-2">
                 <p>Already have an account? </p>
-                <a className="text-[#2563EB]" href="#">
+                <a className="text-[#2563EB]" href="/logInForm/">
                   Log in
                 </a>
               </div>

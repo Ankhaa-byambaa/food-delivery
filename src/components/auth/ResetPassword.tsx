@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-export function ResetPassword() {
+export function ResetPassword({ setEmail, HandleChangeStep }: any) {
   const formSchema = z.object({
     email: z.email(),
     password: z.string().min(6).max(10),
@@ -28,7 +28,9 @@ export function ResetPassword() {
     },
   });
   function onSubmit(values: z.infer<typeof formSchema>) {
+    HandleChangeStep();
     console.log(values);
+    setEmail();
   }
   return (
     <>
@@ -42,16 +44,13 @@ export function ResetPassword() {
                 render={({ field }) => (
                   <FormItem className="flex flex-col gap-3 w-104 ">
                     <FormLabel className="font-bold text-[24px]">
-                      Log in
+                      Reset your password
                     </FormLabel>
                     <FormDescription className="text-4">
-                      Log in to enjoy your favorite dishes.
+                      Enter your email to receive a password reset link.
                     </FormDescription>
                     <FormControl>
-                      <Input
-                        placeholder="Enter your email address"
-                        {...field}
-                      />
+                      <Input placeholder="example@gamil.com" {...field} />
                     </FormControl>
 
                     <FormMessage />
@@ -66,20 +65,17 @@ export function ResetPassword() {
                     <FormControl>
                       <Input placeholder="Password" {...field} />
                     </FormControl>
-                    <FormDescription className="text-4 flex gap-2">
-                      Forgot password ?
-                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <Button className="w-full bg-primary" type="submit">
-                Let's Go
+                Send link
               </Button>
               <div className="flex  gap-2">
                 <p>Don’t have an account? </p>
-                <a className="text-[#2563EB]" href="#">
-                  Sign In
+                <a className="text-[#2563EB]" href="/signUpForm/">
+                  Sign Up
                 </a>
               </div>
             </form>

@@ -10,10 +10,7 @@ export default function Home() {
     setStep((prev) => prev + 1);
   };
   const [email, setEmail] = useState("");
-  // const renderStep = () => {
-  //   const s = StepComponents[step];
-  //   return s;
-  // };
+
   return (
     <>
       <StepComponents

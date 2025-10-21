@@ -15,9 +15,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-export function VerifyEmail() {
+export function VerifyEmail({ HandleChangeStep, setEmail }: any) {
   const formSchema = z.object({
-    email: z.email(),
+    email: z.undefined,
     password: z.string().min(6).max(10),
   });
   const form = useForm<z.infer<typeof formSchema>>({
@@ -29,6 +29,8 @@ export function VerifyEmail() {
   });
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    setEmail();
+    HandleChangeStep();
   }
   return (
     <>
@@ -42,46 +44,22 @@ export function VerifyEmail() {
                 render={({ field }) => (
                   <FormItem className="flex flex-col gap-3 w-104 ">
                     <FormLabel className="font-bold text-[24px]">
-                      Log in
+                      Please verify Your Email
                     </FormLabel>
                     <FormDescription className="text-4">
-                      Log in to enjoy your favorite dishes.
+                      We just sent an email to Test@gmail.com. Click the link in
+                      the email to verify your account.
                     </FormDescription>
-                    <FormControl>
-                      <Input
-                        placeholder="Enter your email address"
-                        {...field}
-                      />
-                    </FormControl>
+                    <FormControl></FormControl>
 
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col gap-3 w-104 ">
-                    <FormControl>
-                      <Input placeholder="Password" {...field} />
-                    </FormControl>
-                    <FormDescription className="text-4 flex gap-2">
-                      Forgot password ?
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+
               <Button className="w-full bg-primary" type="submit">
-                Let's Go
+                Resend email
               </Button>
-              <div className="flex  gap-2">
-                <p>Don’t have an account? </p>
-                <a className="text-[#2563EB]" href="#">
-                  Sign In
-                </a>
-              </div>
             </form>
           </Form>
         </div>

@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-export function LogInForm() {
+export function LogInForm({ email, setEmail }: any) {
   const formSchema = z.object({
     email: z.email(),
     password: z.string().min(6).max(10),
@@ -27,9 +27,12 @@ export function LogInForm() {
       password: "",
     },
   });
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    setEmail();
   }
+
   return (
     <>
       <div className=" flex gap-10 items-center justify-center py-10 px-10">
@@ -58,6 +61,7 @@ export function LogInForm() {
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={form.control}
                 name="password"
@@ -67,18 +71,18 @@ export function LogInForm() {
                       <Input placeholder="Password" {...field} />
                     </FormControl>
                     <FormDescription className="text-4 flex gap-2">
-                      Forgot password ?
+                      <a href="/forgotPass/"> Forgot password ?</a>
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <Button className="w-full bg-primary" type="submit">
-                Let's Go
+                <a href="./"> Let's Go</a>
               </Button>
               <div className="flex  gap-2">
                 <p>Don’t have an account? </p>
-                <a className="text-[#2563EB]" href="#">
+                <a className="text-[#2563EB]" href="signUpForm/">
                   Sign In
                 </a>
               </div>
