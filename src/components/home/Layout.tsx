@@ -5,8 +5,11 @@ import { Header } from "./Header";
 export function Layout({ children }: { children: ReactNode }) {
   return (
     <>
-      <Header />
-      <Footer />
+      <div>
+        <Header />
+        {children}
+        <Footer />
+      </div>
     </>
   );
 }

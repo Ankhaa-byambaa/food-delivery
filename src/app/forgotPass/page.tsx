@@ -1,9 +1,6 @@
 "use client";
-import {
-  PasswordSignUpForm,
-  ResetPassword,
-  VerifyEmail,
-} from "@/components/auth";
+
+import { ResetPassword, VerifyEmail } from "@/components/auth";
 import { useState } from "react";
 
 export default function Page() {

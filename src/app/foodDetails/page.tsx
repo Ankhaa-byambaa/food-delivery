@@ -1,4 +1,10 @@
+import { FoodDetail } from "@/components/cardAddSection";
+
 export default function page() {
   // alert iig =>sonner bolgoh
-  return <>hi</>;
+  return (
+    <>
+      <FoodDetail categoryName="Appetizers" />
+    </>
+  );
 }
