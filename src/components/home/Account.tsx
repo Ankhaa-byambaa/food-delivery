@@ -19,7 +19,7 @@ export function Account({ gmail }: AcountProps) {
   }, []);
 
   return (
-    <div className=" flex flex-col justify-center items-center rounded-md w-47 h-25 bg-background text-5 font-bold text-foreground">
+    <div className=" mt-[-7] flex flex-col justify-center items-center rounded-md w-47 h-25 bg-background text-5 font-bold text-foreground">
       {email}@gmail.com
       <Badge
         className="text-4 text-secondary-foreground bg-secondary py-2 px-3 "

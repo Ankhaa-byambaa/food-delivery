@@ -6,9 +6,9 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <div>
-        <Header />
+        <Header foodDetail={false} />
         {children}
-        <Footer />
+        <Footer foodDetail={false} />
       </div>
     </>
   );

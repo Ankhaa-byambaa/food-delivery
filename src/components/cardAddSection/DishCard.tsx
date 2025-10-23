@@ -9,16 +9,16 @@ type DishCardProps = {
 export function DishCard({ name, price, url, description }: DishCardProps) {
   return (
     <>
-      <div className="w-[270px] h-[241px] flex flex-col gap-2 py-6 border border-border items-center justify-center rounded-[20px] ">
+      <div className="w-[270px] h-[241px] flex flex-col gap-2 py-6 border border-border items-center justify-center rounded-[20px] bg-background ">
         <Button
           // onClick={""}
           className="absolute border rounded-full w-11 bg-background pb-2 px-4"
         >
-          {/* <img src={`${}`} alt="" /> */}
+          {/* <img  alt="" /> */}
         </Button>
         <img
           className="w-60 h-30 border rounded-[20px] relative"
-          src={"food.jpeg"}
+          src={`${url}`}
         />
         <div className="flex justify-between gap-4  px-2">
           <p className="text-red-500 text-[14px]  ">{name}</p>
